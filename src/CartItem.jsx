@@ -6,14 +6,13 @@ import './CartItem.css';
 const CartItem = ({ onContinueShopping }) => {
     const cart = useSelector(state => state.cart.items);
     const dispatch = useDispatch();
-
     // Calculate total amount for all products in the cart
     const calculateTotalAmount = () => {
         return cart.reduce((total, item) => total + item.quantity * parseFloat(item.cost.slice(1)), 0).toFixed(2);
     };
 
     const handleContinueShopping = (e) => {
-        onContinueShopping();
+        onContinueShopping(e);
     };
 
 
